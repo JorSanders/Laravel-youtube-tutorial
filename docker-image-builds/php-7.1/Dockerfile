@@ -3,6 +3,4 @@ RUN apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev lib
 	&& docker-php-source extract \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug \
-	&& docker-php-ext-install mysqli \
-	&& docker-php-ext-install gd \
     && rm -rf /var/cache/apk/*
