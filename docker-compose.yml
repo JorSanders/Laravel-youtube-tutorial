@@ -13,7 +13,8 @@ services:
     depends_on:
       - php
     networks:
-      - dev.network
+      static-network:
+        ipv4_address: "${IPADDRESS}.5"
   php:
     container_name: php-7.1-fpm
     build:
@@ -24,7 +25,11 @@ services:
       - ./conf/php.ini:/usr/local/etc/php/conf.d/50-setting.ini
     working_dir: /var/www
     networks:
-      - dev.network
+      static-network:
+        ipv4_address: "${IPADDRESS}.7"
 
 networks:
-    dev.network:
+  static-network:
+    ipam:
+      config:
+        - subnet: "${IPADDRESS}.0/28"
