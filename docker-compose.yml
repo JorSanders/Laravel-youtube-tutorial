@@ -23,7 +23,7 @@ services:
     volumes:
       - ./www:/var/www
       - ./conf/php.ini:/usr/local/etc/php/conf.d/50-setting.ini
-    working_dir: /var/www
+    working_dir: /application
     networks:
       static-network:
         ipv4_address: "${IPADDRESS}.7"
