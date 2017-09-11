@@ -18,7 +18,7 @@ services:
     container_name: php-7.1-fpm
     build:
       context: .
-      dockerfile: "./docker-image-builds/php7.1/Dockerfile"
+      dockerfile: "./docker-image-builds/php-7.1/Dockerfile"
     volumes:
       - ./www:/var/www
       - ./conf/php.ini:/usr/local/etc/php/conf.d/50-setting.ini
