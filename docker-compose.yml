@@ -9,6 +9,7 @@ services:
     volumes:
       - ./src:/var/www/html
       - ./conf/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./logs/nginx:/var/log/nginx
     working_dir: /var/www/html
     depends_on:
       - php
@@ -26,7 +27,20 @@ services:
     working_dir: /application
     networks:
       static-network:
+        ipv4_address: "${IPADDRESS}.6"
+  db:
+    image: mysql:latest
+    volumes:
+      - ./conf/db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=123
+      - MYSQL_DATABASE=dbname
+      - MYSQL_USER=dbuser
+      - MYSQL_PASSWORD=123
+    networks:
+      static-network:
         ipv4_address: "${IPADDRESS}.7"
+
 
 networks:
   static-network:
