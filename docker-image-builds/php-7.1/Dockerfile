@@ -1,9 +1,9 @@
-FROM phpdockerio/php71-fpm:latest
+FROM php:7.1-fpm-alpine
 
-# Install xdebug and imagick
-RUN apt-get update \
-    && apt-get -y --no-install-recommends install  php-imagick php-xdebug \
-    && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
-
-
-WORKDIR "/application"
+RUN apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev g++ make autoconf \
+	&& docker-php-source extract \
+    && pecl install xdebug \
+    && docker-php-ext-enable xdebug \
+	&& docker-php-ext-install mysqli \
+	&& docker-php-ext-install gd \
+    && rm -rf /var/cache/apk/*

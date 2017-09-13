@@ -20,22 +20,23 @@ services:
   php:
     container_name: php-${PHPVERSION}-fpm-${PROJECTNAME}
     build:
-      context: .
-      dockerfile: "./docker-image-builds/php-7.1/Dockerfile"
+          context: ./docker-image-builds/php-7.1
+          dockerfile: Dockerfile
     volumes:
       - ./src:/var/www/html
       - ./conf/php.ini:/usr/local/etc/php/conf.d/50-setting.ini
+      #- ./conf/php-fpm.conf:/etc
     working_dir: /application
     networks:
       static-network:
         ipv4_address: "${IPV4ADDRESS}.6"
   db:
     image: mysql:${MYSQLVERSION}
-    container_name: mysql-${NGINXVERSION}-alpine-${PROJECTNAME}
+    container_name: mysql-${NGINXVERSION}-${PROJECTNAME}
     volumes:
       - ./db:/var/lib/mysql
       # By default logging in mysql is disabled. I see no need to enable myself
-      #- ./logs/mysql:/var/log/mysql
+      - ./logs/mysql:/var/log/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=123
       - MYSQL_DATABASE=${PROJECTNAME}
@@ -44,7 +45,6 @@ services:
     networks:
       static-network:
         ipv4_address: "${IPV4ADDRESS}.7"
-
 
 networks:
   static-network:
