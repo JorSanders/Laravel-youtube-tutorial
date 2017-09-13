@@ -26,7 +26,7 @@ If you are using this repository and find any bugs, have any feature requests or
 
     See where to find what
             
-6. [Useful docker commands](#usefull-docker-commands)
+6. [Useful docker commands](#useful-docker-commands)
 
     See where to find what
 
