@@ -18,11 +18,11 @@ If you are using this repository and find any bugs, have any feature requests or
 
     Start up the webservice.
     
-4. [Easy customizations](#Easy-customizations)
+4. [Easy customizations](#easy-customizations)
 
     Customize the project to your own needs
         
-5. [Project tree](#project-tree)
+5. [File structure](#file-structure)
 
     See where to find what
 
