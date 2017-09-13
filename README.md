@@ -25,6 +25,10 @@ If you are using this repository and find any bugs, have any feature requests or
 5. [File structure](#file-structure)
 
     See where to find what
+            
+6. [Useful docker commands](#usefull-docker-commands)
+
+    See where to find what
 
 ## Install prerequisites
 
