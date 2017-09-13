@@ -31,7 +31,9 @@ services:
   db:
     image: mysql:latest
     volumes:
-      - ./conf/db:/var/lib/mysql
+      - ./db:/var/lib/mysql
+      # By default logging in mysql is disabled. I see no need to enable myself
+      #- ./logs/mysql:/var/log/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=123
       - MYSQL_DATABASE=dbname
