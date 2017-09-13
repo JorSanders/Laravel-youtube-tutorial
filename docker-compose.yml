@@ -20,8 +20,10 @@ services:
   php:
     container_name: php-${PHPVERSION}-fpm-${PROJECTNAME}
     build:
-          context: ./docker-image-builds/php-7.1
+          context: ./docker-image-builds/php
           dockerfile: Dockerfile
+          args:
+            PHPVERSION: ${PHPVERSION}
     volumes:
       - ./src:/var/www/html
       - ./conf/php.ini:/usr/local/etc/php/conf.d/50-setting.ini
@@ -35,6 +37,7 @@ services:
     container_name: mysql-${NGINXVERSION}-${PROJECTNAME}
     volumes:
       - ./db:/var/lib/mysql
+      #- ./conf/mysql.cnf:/etc/mysql/
       # By default logging in mysql is disabled. I see no need to enable myself
       - ./logs/mysql:/var/log/mysql
     environment:
