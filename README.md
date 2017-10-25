@@ -65,7 +65,7 @@ $ docker-compose up -d
 ## Easy customizations
 
 You open up the .env file in the project root. You will see some enviorment variables just change these to your desired values.
-These are the default values as how I set them up. Please change the IP address and projectname. If you cant open the .env file its hidden by default
+These are the default values as how I set them up. Please change the IP address and projectname. If you cant open the .env file its hidden by default. Press ctrl H have it appear in explorer
 ```
 IPV4ADDRESS=192.168.0
 PROJECTNAME=unnamedproject
