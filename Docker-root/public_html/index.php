@@ -1,7 +1,7 @@
 <?php
 
 // Test mysqli connection
-$db_connection = mysqli_connect("192.168.0.7", "unnamedproject", "123", "unnamedproject");
+$db_connection = mysqli_connect("192.168.0.7", "dbuser", "dbpass", "dbname");
 
 var_dump($db_connection);
 if (!$db_connection) {
@@ -9,6 +9,5 @@ if (!$db_connection) {
     echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
     echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
 }
-
 
 phpinfo();

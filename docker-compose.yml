@@ -4,10 +4,9 @@ services:
   nginx:
     image: nginx:${NGINXVERSION}-alpine
     container_name: nginx-${NGINXVERSION}-alpine-${PROJECTNAME}
-    ports: 
-      - "80:80"
+    #ports: "80:80"
     volumes:
-      - ./src:/var/www/html
+      - ./${PROJECTNAME}-root:/var/www/html
       - ./conf/nginx.conf:/etc/nginx/conf.d/default.conf
       - ./logs/nginx:/var/log/nginx
     working_dir: /var/www/html
@@ -25,7 +24,7 @@ services:
           args:
             PHPVERSION: ${PHPVERSION}
     volumes:
-      - ./src:/var/www/html
+      - ./${PROJECTNAME}-root:/var/www/html
       - ./conf/php.ini:/usr/local/etc/php/conf.d/50-setting.ini
       #- ./conf/php-fpm.conf:/etc
     working_dir: /application
@@ -41,10 +40,10 @@ services:
       # By default logging in mysql is disabled. I see no need to enable myself
       - ./logs/mysql:/var/log/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=123
-      - MYSQL_DATABASE=${PROJECTNAME}
-      - MYSQL_USER=${PROJECTNAME}
-      - MYSQL_PASSWORD=123
+      - MYSQL_ROOT_PASSWORD=${ROOTPASS}
+      - MYSQL_DATABASE=${DBNAME}
+      - MYSQL_USER=${DBUSER}
+      - MYSQL_PASSWORD=${DBPASS}
     networks:
       static-network:
         ipv4_address: "${IPV4ADDRESS}.7"
