@@ -38,14 +38,14 @@ I created this project for Ubuntu(16.04). This is the only OS I tested on
 
 ## Clone the project
 
-Git clone
+Git clone, Or you can download a zipfile of this project.
 ```
 $ git clone https://github.com/jorsanders/docker-php.git
 ```
 
 Go to the project directory : 
 
-```sh
+```
 $ cd <wherever you cloned the repo to>
 Or you can open the location in your file explorer and right click -> open in explorer
 ```
@@ -53,13 +53,13 @@ Or you can open the location in your file explorer and right click -> open in ex
 
 2. Start the application :
 
-```sh
+```
 $ docker-compose up -d
 ```
     
 3. Open your browser :
 
-[http://localhost](http://localhost)
+[192.168.1.5](192.168.1.5)
    
    
 ## Easy customizations
@@ -67,8 +67,8 @@ $ docker-compose up -d
 You open up the .env file in the project root. You will see some enviorment variables just change these to your desired values.
 These are the default values as how I set them up. Please change the IP address and projectname. If you cant open the .env file its hidden by default. Press ctrl H have it appear in explorer
 ```
-IPV4ADDRESS=192.168.0
-PROJECTNAME=unnamedproject
+IPV4ADDRESS=192.168.1
+PROJECTNAME=docker
 PHPVERSION=7.1
 MYSQLVERSION=8.0
 NGINXVERSION=1.13
@@ -83,12 +83,12 @@ sudo -i gedit /etc/hosts
 Then set enter a line like this. Change the first 3 parts of the ip address to how you set yours
 ```
 
-192.168.0.5	domain.dev
+192.168.1.5	docker.dev
 ```
 
 
 ## Useful Docker commands
-For docker compose commands you'll first need to ```cd``` into the directory with your ```docker-compose.yml```
+For docker compose commands you'll first need to ```cd``` into the directory with your ```docker-compose.yml```. Or even better open up a terminal in phpstorm with ```alt + f12```
 
 (Re)Starts all the containers defined in the project in the foreground. To detach (ctrl P + Q), to exit (ctrl + C)
 ```
@@ -169,3 +169,8 @@ Remove all networks
 ```
 docker network rm $(docker network ls -q)
 ```
+
+Because php doesnt have write permission in the Nginx container you should ```sudo chmod 0007 ./ ``` in the directory you want to upload files to from php. Probably don't want to do this on a production enviroment. Looking for a better way to handle this.
+
+To run docker commands without sudo add yourself to the docker user group ```sudo gpasswd -a $USER docker``` then reboot your machine.
+

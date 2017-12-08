@@ -1,7 +1,7 @@
 <?php
 
 // Test mysqli connection
-$db_connection = mysqli_connect("192.168.0.7", "dbuser", "dbpass", "dbname");
+$db_connection = mysqli_connect("db", "dbuser", "dbpass", "dbname");
 
 var_dump($db_connection);
 if (!$db_connection) {

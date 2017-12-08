@@ -1,18 +1,16 @@
 version: '3'
 
 services:
-  nginx:
+  webserver:
     image: nginx:${NGINXVERSION}-alpine
     container_name: nginx-${NGINXVERSION}-alpine-${PROJECTNAME}
-    #ports: "80:80"
     volumes:
-      - ./${PROJECTNAME}-root:/var/www/html
+      - ./${PROJECTNAME}:/var/www/html
       - ./conf/nginx.conf:/etc/nginx/conf.d/default.conf
       - ./logs/nginx:/var/log/nginx
-    working_dir: /var/www/html
-    depends_on:
     depends_on:
       - php
+      - db
     networks:
       static-network:
         ipv4_address: "${IPV4ADDRESS}.5"
@@ -24,10 +22,8 @@ services:
           args:
             PHPVERSION: ${PHPVERSION}
     volumes:
-      - ./${PROJECTNAME}-root:/var/www/html
+      - ./${PROJECTNAME}:/var/www/html
       - ./conf/php.ini:/usr/local/etc/php/conf.d/50-setting.ini
-      #- ./conf/php-fpm.conf:/etc
-    working_dir: /application
     networks:
       static-network:
         ipv4_address: "${IPV4ADDRESS}.6"
@@ -36,8 +32,7 @@ services:
     container_name: mysql-${NGINXVERSION}-${PROJECTNAME}
     volumes:
       - ./db:/var/lib/mysql
-      #- ./conf/mysql.cnf:/etc/mysql/
-      # By default logging in mysql is disabled. I see no need to enable myself
+      # By default logging in mysql is disabled. I see no need to enable. So this directory will be empty
       - ./logs/mysql:/var/log/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=${ROOTPASS}
