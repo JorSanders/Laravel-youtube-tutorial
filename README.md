@@ -119,6 +119,10 @@ Lists all active containers
 ```
 docker ps
 ```
+Execute terminal commands in a container
+```
+docker exec -it <container id> <bash commands>
+```
 
 Inspect a container
 ```
@@ -170,7 +174,24 @@ Remove all networks
 docker network rm $(docker network ls -q)
 ```
 
-Because php doesnt have write permission in the Nginx container you should ```sudo chmod 0007 ./ ``` in the directory you want to upload files to from php. Probably don't want to do this on a production enviroment. Looking for a better way to handle this.
+### Docker setup
 
-To run docker commands without sudo add yourself to the docker user group ```sudo gpasswd -a $USER docker``` then reboot your machine.
+Because php doesnt have write permission in the Nginx container you can change the mode in the directory you want to upload files to from php. Probably don't want to do this on a production enviroment. Looking for a better way to handle this.
+```
+sudo chmod 0007 ./ -R
+``` 
 
+Optionally you can then gitignore chmod so you don't commit these changes in either your gitrepo or in your global gitignore. 
+```
+git config --global core.fileMode false
+```
+
+To run docker commands without sudo add yourself to the docker user group then reboot your machine.
+```
+sudo gpasswd -a $USER docker
+```
+
+To get access to the db, logs or server root files, which are owned by docker
+```
+sudo chown $USER ./<directory name> -R
+```
