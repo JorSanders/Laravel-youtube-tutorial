@@ -26,7 +26,11 @@ If you are using this repository and find any bugs, have any feature requests or
             
 5. [Useful docker commands](#useful-docker-commands)
 
-    See where to find what
+    Helpful list of docker commands I find usefull
+
+6. [Docker setup](#docker-setup)
+
+	Helpfull commands for your docker enviroment
 
 ## Install prerequisites
 
