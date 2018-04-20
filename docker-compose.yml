@@ -32,7 +32,7 @@ services:
     image: mysql:${MYSQLVERSION}
     container_name: ${PROJECTNAME}-mysql-${NGINXVERSION}
     volumes:
-      - ./db:/var/lib/mysql
+      - ./db-${MYSQLVERSION}:/var/lib/mysql
       # By default logging in mysql is disabled. I see no need to enable. So this directory will be empty
       - ./logs/mysql:/var/log/mysql
     environment:
