@@ -1,3 +1,18 @@
+# Addition readme for laravel
+pure readme is below
+
+
+#### Install laravel composer dependencies
+first cd into your laravel root
+
+```docker run --rm -v $(pwd):/app composer install```
+
+#### Fix laravel write/read permissions
+
+```sudo chmod 755 -R laravel-root```
+```sudo chmod -R o+w laravel-root/storage```
+
+
 # Run php applications with a Nginx host and a MySQL database
 
 Docker running Nginx, PHP-FPM, MySQL 
