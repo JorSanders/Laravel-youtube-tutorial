@@ -5,7 +5,7 @@ services:
     container_name: ${PROJECTNAME}-nginx-${NGINXVERSION}-alpine
     build:
           context: ./dockerfiles
-          dockerfile: dockerfiles/nginx.dockerfile
+          dockerfile: nginx.dockerfile
           args:
             NGINXVERSION: ${NGINXVERSION}
     volumes:
@@ -22,8 +22,8 @@ services:
   php:
     container_name: ${PROJECTNAME}-php-${PHPVERSION}-fpm
     build:
-          context: ./docker-image-builds/php
-          dockerfile: docker-image-builds/Dockerfile
+          context: ./dockerfiles
+          dockerfile: php.dockerfile
           args:
             PHPVERSION: ${PHPVERSION}
     volumes:
