@@ -82,12 +82,11 @@ Be sure to add the ip address in your host file.
 Open it with.
 
 ```
-sudo -i gedit /etc/hosts
+sudo nano /etc/hosts
 ```
-Then set enter a line like this. Change the first 3 parts of the ip address to how you set yours
+Then add a line like this. Change the first 3 parts of the ip address to how you set yours
 ```
-
-192.168.1.5	docker.dev
+192.168.100	.5	docker.dev www.docker.dev
 ```
 
 
