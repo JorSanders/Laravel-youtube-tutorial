@@ -1,6 +1,15 @@
 # Addition readme for laravel
 pure readme is below
 
+### Laravel commands
+
+Generate a key in the .env file after changing its contents
+
+```docker-compose exec php php artisan key:generate```
+
+Migrate the changes to the db
+
+```docker-compose exec php php artisan migrate```
 
 #### Install laravel composer dependencies
 first cd into your laravel root
