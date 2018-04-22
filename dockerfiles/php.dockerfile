@@ -11,6 +11,7 @@ RUN apk update
 #RUN apk add --no-cache	unzip
 #RUN apk add --no-cache	git
 
+# Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Xdebug
