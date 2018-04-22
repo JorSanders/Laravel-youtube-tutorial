@@ -1,4 +1,4 @@
-ARG PHPVERSION=7.1
+ARG PHPVERSION=0
 FROM php:${PHPVERSION}-fpm-alpine
 
 RUN apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev g++ make autoconf \
