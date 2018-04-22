@@ -10,6 +10,7 @@ first cd into your laravel root
 #### Fix laravel write/read permissions
 
 ```sudo chmod 755 -R laravel-root```
+
 ```sudo chmod -R o+w laravel-root/storage```
 
 
