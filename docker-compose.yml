@@ -2,12 +2,16 @@ version: '3'
 
 services:
   webserver:
-    image: nginx:${NGINXVERSION}-alpine
     container_name: ${PROJECTNAME}-nginx-${NGINXVERSION}-alpine
+    build:
+          context: ./dockerfiles
+          dockerfile: dockerfiles/nginx.dockerfile
+          args:
+            NGINXVERSION: ${NGINXVERSION}
     volumes:
-      - ./${PROJECTNAME}:/var/www/html
-      - ./conf/nginx.conf:/etc/nginx/conf.d/default.conf
-      - ./logs/nginx:/var/log/nginx
+       - ./${PROJECTNAME}:/var/www/html
+       - ./conf/nginx.conf:/etc/nginx/conf.d/default.conf
+       - ./logs/nginx:/var/log/nginx
     depends_on:
       # you can also reach these service by their name instead of their ip now. From nginx container
       - php
@@ -19,7 +23,7 @@ services:
     container_name: ${PROJECTNAME}-php-${PHPVERSION}-fpm
     build:
           context: ./docker-image-builds/php
-          dockerfile: Dockerfile
+          dockerfile: docker-image-builds/Dockerfile
           args:
             PHPVERSION: ${PHPVERSION}
     volumes:
