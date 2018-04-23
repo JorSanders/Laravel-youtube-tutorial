@@ -124,7 +124,7 @@ docker ps
 ```
 Execute terminal commands in a container
 ```
-docker exec -it <container id> <bash commands>
+docker-compose exec <service name> <shell command>
 ```
 
 Inspect a container
