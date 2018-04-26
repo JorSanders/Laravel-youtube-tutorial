@@ -9,6 +9,10 @@ Generate a key in the .env file after changing its contents
 
 ```docker-compose exec php php artisan make:migration create_companies_table```
 
+```docker-compose exec php php artisan make:model Role```
+
+```docker-compose exec php php artisan make:controller CompaniesController --resource --model=Company```
+
 Migrate the changes to the db
 
 ```docker-compose exec php php artisan migrate```
