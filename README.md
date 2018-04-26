@@ -7,6 +7,8 @@ Generate a key in the .env file after changing its contents
 
 ```docker-compose exec php php artisan key:generate```
 
+```docker-compose exec php php artisan make:migration create_companies_table```
+
 Migrate the changes to the db
 
 ```docker-compose exec php php artisan migrate```
@@ -199,8 +201,7 @@ docker network rm <network id>
 
 Remove all networks
 ```
-docker network rm $(docker network ls -q)
-```
+s```
 
 ### Docker setup
 
