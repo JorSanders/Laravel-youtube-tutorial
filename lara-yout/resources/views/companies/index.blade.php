@@ -2,10 +2,11 @@
 
 @section('content')
 
-    <div class="col-md-6 col-lg-6 col-md-offset-3 col-md-offset-3">
-        <div class="panel panel-default col-md-6 col-lg-6">
-            <div class="panel-heading">Companies</div>
-            <div class="panel-body">
+    <div class="col-9 col-lg-offset-3 col-md-offset-2">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Companies</h5>
+                <a href="/companies/create" class="btn btn-primary">Create new company</a>
                 <ul class="list-group">
                     @foreach($companies as $company)
                         <li class="list-group-item"><a href="/companies/{{  $company->id }}">{{ $company->name }}</a>
