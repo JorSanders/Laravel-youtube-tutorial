@@ -70,11 +70,13 @@
         </div>
     </nav>
 
-    <div class="container" >
-        @yield('content')
+    <div class="container">
+        @include('partials.errors')
+        @include('partials.success')
 
-        <!--<main class="py-4">
-            </main> -->
+        <div class="row">
+            @yield('content')
+        </div>
     </div>
 </div>
 </body>
