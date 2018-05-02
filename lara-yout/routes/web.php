@@ -21,6 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('companies', 'CompaniesController');
 Route::resource('projects', 'ProjectsController');
+Route::get('projects/create/{id?}', 'ProjectsController@create');
 Route::resource('roles', 'RolesController');
 Route::resource('tasks', 'TasksController');
 Route::resource('users', 'UsersController');

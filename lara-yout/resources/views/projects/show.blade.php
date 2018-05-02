@@ -8,7 +8,7 @@
             <p class="lead">{{$company->description}}</p>
         </div>
 
-        <a href="/projects/create/{{ $company->id }}" class="float-right btn btn-primary">Add project</a>
+        <a href="/projects/create" class="float-right btn btn-primary">Add project</a>
         <!-- Example row of columns -->
         <div class="row">
             @foreach($company->projects as $project)
@@ -26,7 +26,7 @@
             <h4>Actions</h4>
             <ol class="list-unstyled">
                 <li><a href="/companies/{{ $company->id }}/edit">Edit</a></li>
-                <li><a href="/projects/create/{{ $company->id }}">Add project</a></li>
+                <li><a href="/projects/create">Add project</a></li>
                 <li><a href="/companies/create">Create new company</a></li>
                 <li><a href="/companies">List of companies</a></li>
                 <li>
