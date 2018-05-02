@@ -1,6 +1,11 @@
 # Addition readme for laravel
 pure readme is below
 
+I followed this tutorial to get a basic grasp of laravels structure
+
+https://www.youtube.com/watch?v=qj44ogxDZkQ&index=42&list=PLnBvgoOXZNCP2LEKmvu2W-eUkO-DYn0TL
+
+
 ### Laravel commands
 
 Generate a key in the .env file after changing its contents
